@@ -54,7 +54,7 @@ const contacts = [
     label: '小红书',
     value: 'xiaobing38233',
     icon: ExternalLink,
-    href: 'https://www.xiaohongshu.com/user/profile/xiaobing38233',
+    href: 'https://xhslink.com/m/9hAYkwOOgaw',
   },
 ];
 
