@@ -1,5 +1,9 @@
 # 项目上下文
 
+## 项目概述
+
+**小冰个人主页** - 一个 Apple Liquid Glass 暗色风格的个人介绍网站，用于求职展示。
+
 ### 版本技术栈
 
 - **Framework**: Next.js 16 (App Router)
@@ -7,6 +11,12 @@
 - **Language**: TypeScript 5
 - **UI 组件**: shadcn/ui (基于 Radix UI)
 - **Styling**: Tailwind CSS 4
+
+### 设计风格
+
+- **主题**: Apple Liquid Glass 暗色风格
+- **特点**: 克制、纯净、精密、通透、安静、高级
+- **详见**: [DESIGN.md](./DESIGN.md)
 
 ## 目录结构
 
