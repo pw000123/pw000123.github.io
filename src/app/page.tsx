@@ -10,12 +10,17 @@ import {
   Search,
   ClipboardList,
   Database,
-  Users,
+  Sparkles,
   Wrench,
   Briefcase,
+  TrendingUp,
   Microscope,
   GraduationCap,
   MapPin,
+  Globe,
+  PenLine,
+  Table2,
+  FileStack,
 } from 'lucide-react';
 
 // 复制到剪贴板的 Hook
@@ -35,7 +40,6 @@ function useCopyToClipboard() {
   return { copied, copy };
 }
 
-// 联系方式（求职版：只保留可被 HR 直接使用的入口）
 const contacts = [
   {
     type: 'email',
@@ -52,55 +56,59 @@ const contacts = [
   },
 ];
 
-// 核心能力：由盖洛普前十才干翻译而来
+// 核心能力：综合版（AI / 体系 / 运营 / 数据），由盖洛普前十才干翻译而来
 const abilities = [
   {
-    icon: Search,
-    title: '问题定位与根因分析',
-    talents: '思维 · 排难 · 分析',
-    highlights: ['污染点定位', '致腐菌分离', '根因归因'],
-    detail: '平遥牛肉全流程微生物监测，锁定分割环节为核心污染点并分离致腐菌株',
+    icon: Sparkles,
+    title: 'AI 工具深度应用',
+    talents: '思维 · 搜集 · 学习',
+    highlights: ['AI 建站', '资料整理', '提效流水线'],
+    detail:
+      '用 WorkBuddy、Codex 等 AI 工具从 0 搭建并部署本站（Next.js + GitHub Pages 自动部署），批量重构课程笔记与复习资料，把重复劳动交给工具',
   },
   {
     icon: ClipboardList,
-    title: '标准体系搭建与落地',
+    title: '体系搭建与流程标准化',
     talents: '纪律 · 责任 · 专注',
-    highlights: ['验收标准', 'SOP 编写', '现场培训'],
-    detail: '1 个月完成 50 份生鲜验收标准，输出 122 页 SOP 覆盖 3 个岗位',
+    highlights: ['SOP 编写', '验收标准', '现场培训'],
+    detail:
+      '1 个月完成 50 份生鲜验收标准，梳理采购、履约、品控 3 个岗位流程，输出 122 页结构化 SOP 培训文档',
+  },
+  {
+    icon: TrendingUp,
+    title: '内容运营与变现',
+    talents: '适应 · 包容 · 和谐',
+    highlights: ['公众号 100+ 篇', '知乎 12 万阅读', '资料变现'],
+    detail:
+      '从软件教程、考研资料到答辩 PPT 模板，多个内容方向从 0 做起并实现变现，擅长把知识整理成别人愿意付费的形态',
   },
   {
     icon: Database,
-    title: '知识沉淀与数据库建设',
-    talents: '搜集',
-    highlights: ['配方数据库', '知识体系', '文档工程'],
-    detail: '飞书搭建 20+ 香辛料精准配比数据库，解决批次间品质波动',
-  },
-  {
-    icon: Users,
-    title: '跨部门协同与快速上手',
-    talents: '包容 · 和谐 · 适应',
-    highlights: ['合规推动', '供应商培训', '跨界适应'],
-    detail: '发现标签违规后联动采购推动商品下架，规避 GB 7718 合规风险',
+    title: '数据分析与问题定位',
+    talents: '排难 · 分析',
+    highlights: ['R 语言', 'SQL', '归因分析'],
+    detail:
+      '客诉数据五维归因（顾客 / 品类 / 供应商 / 仓配 / 问题类型）、菌群测序数据分析、高校录取数据看板搭建',
   },
 ];
 
 // 专业技能
 const skillGroups = [
   {
-    title: '法规与标准',
-    items: ['GB 7718 食品标签', 'GB 2760 食品添加剂', 'GB 5009 系列检验', '标签合规审核'],
+    title: 'AI 与工具',
+    items: ['WorkBuddy', 'Codex / ChatGPT', 'Next.js 建站', 'Git / GitHub Pages', '飞书多维表格'],
   },
   {
-    title: '微生物检测',
-    items: ['菌落总数', '腐败菌分离筛选', '16S 测序', '大肠菌群'],
+    title: '数据分析',
+    items: ['R 语言', 'SQL', 'Excel 透视表', 'XMind', 'Markdown'],
   },
   {
-    title: '理化指标检测',
-    items: ['pH', 'TVB-N', 'TBARS', '盐度', '亚硝酸盐'],
+    title: '食品法规与检测',
+    items: ['GB 7718 标签', 'GB 2760 添加剂', 'GB 5009 检验', '微生物检测', '理化指标'],
   },
   {
-    title: '数据与工具',
-    items: ['R 语言', 'SQL', 'Excel 透视表', 'XMind', 'Markdown', '飞书'],
+    title: '内容与运营',
+    items: ['公众号排版', '知乎长文', '小红书', '资料整理', 'PPT 模板设计'],
   },
 ];
 
@@ -130,12 +138,40 @@ const experiences = [
   },
 ];
 
+// AI 与运营实践
+const practices = [
+  {
+    icon: Globe,
+    title: '用 AI 搭建并部署本站',
+    description:
+      'Next.js + Tailwind + GitHub Actions 自动部署，从设计、开发到上线全程 AI 协作完成——你正在看的这个网站就是作品之一。',
+  },
+  {
+    icon: PenLine,
+    title: '内容账号从 0 到变现',
+    description:
+      '公众号软件教程 100+ 篇；知乎回答最高 12 万阅读；小红书考研资料整理变现，答辩 PPT 模板售出 100+ 份。',
+  },
+  {
+    icon: Table2,
+    title: '数据资料产品化',
+    description:
+      '把高校食品学院近 6 年研究生录取数据整理为飞书多维表格看板；将零散课程资料重构为结构化笔记并售出。',
+  },
+  {
+    icon: FileStack,
+    title: 'AI 提效流水线',
+    description:
+      '用 AI 批量重构课程视频笔记、整理考研复习资料、辅助论文数据分析（R 语言 + 高通量测序），形成一套可复用的个人提效工作流。',
+  },
+];
+
 // 科研成果
 const researchHighlights = [
   { value: 'SCI 2区', label: '一作论文', detail: 'International Journal of Refrigeration' },
   { value: '1 篇', label: '中文核心', detail: '第一作者' },
   { value: '14 → 21 天', label: '4℃ 货架期', detail: '复合天然保鲜剂应用验证' },
-  { value: '分割环节', label: '核心污染点', detail: '全流程微生物监测定位' },
+  { value: 'R + 测序', label: '数据分析', detail: '菌群群落结构与显著性分析' },
 ];
 
 // 教育背景
@@ -202,7 +238,7 @@ export default function Home() {
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors">能力</a>
             <a href="#experience" className="hover:text-foreground transition-colors">经历</a>
-            <a href="#research" className="hover:text-foreground transition-colors">科研</a>
+            <a href="#practice" className="hover:text-foreground transition-colors">实践</a>
             <a href="#education" className="hover:text-foreground transition-colors">教育</a>
             <a href="#contact" className="hover:text-foreground transition-colors">联系</a>
           </div>
@@ -211,18 +247,13 @@ export default function Home() {
 
       {/* Hero 首屏 */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[100px] animate-pulse-soft" />
-          <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[200px] bg-primary/3 rounded-full blur-[80px] animate-pulse-soft" style={{ animationDelay: '2s' }} />
-        </div>
-
         <div className="relative z-10 text-center animate-fade-up">
           <div className="mb-5 text-[11px] uppercase tracking-[0.3em] text-muted-foreground/80 font-sans">
-            食品质量管理 · Quality Assurance · Portfolio 2026
+            个人主页 · Portfolio · Issue 01 · 2026
           </div>
           <div className="mb-6">
             <span className="inline-block px-4 py-1.5 glass-panel rounded-full text-sm text-muted-foreground">
-              硕士 · SCI 2区一作 · 可立即到岗
+              复合型人才 · 会运营 · 能用 AI 搭建网站
             </span>
           </div>
 
@@ -231,14 +262,13 @@ export default function Home() {
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-xl mx-auto leading-relaxed">
-            把混乱的质量问题，变成
-            <span className="text-foreground font-medium">可查、可标、可验证</span>
-            的体系
+            把复杂的事物，变成
+            <span className="text-foreground font-medium">可执行的 SOP</span>
           </p>
 
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-8">
             <MapPin className="w-4 h-4" />
-            <span>现居山西大同 · 2026.07 已毕业 · 可立即到岗</span>
+            <span>食品背景 × AI 实践 × 内容运营 · 硕士 · SCI 一作</span>
           </div>
 
           <div className="flex items-center justify-center gap-4">
@@ -267,7 +297,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="scroll-reveal mb-16">
             <h2 className="text-2xl font-semibold mb-4">核心能力</h2>
-            <p className="text-muted-foreground">由盖洛普前十才干提炼，每一项都有可验证的产出</p>
+            <p className="text-muted-foreground">AI、体系、运营、数据四条线，每一项都有可验证的产出</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -307,7 +337,7 @@ export default function Home() {
               <Wrench className="w-6 h-6 text-primary" />
               <h2 className="text-2xl font-semibold">专业技能</h2>
             </div>
-            <p className="text-muted-foreground">法规、检测与数据工具的具体清单</p>
+            <p className="text-muted-foreground">AI、数据、食品、运营的具体清单</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -369,6 +399,37 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI 与运营实践 */}
+      <section id="practice" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="scroll-reveal mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Sparkles className="w-6 h-6 text-primary" />
+              <h2 className="text-2xl font-semibold">AI 与运营实践</h2>
+            </div>
+            <p className="text-muted-foreground">课堂和实验室之外，我用 AI 和内容做了这些事</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {practices.map((item, index) => (
+              <div
+                key={item.title}
+                className="scroll-reveal glass-panel glass-glow rounded-2xl p-6"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 glass-panel rounded-xl flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-base font-medium">{item.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -451,7 +512,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="scroll-reveal mb-16 text-center">
             <h2 className="text-2xl font-semibold mb-4">联系我</h2>
-            <p className="text-muted-foreground">求职ing，期待与你的交流</p>
+            <p className="text-muted-foreground">欢迎交流 AI 工具、内容运营或食品质量的任何话题</p>
           </div>
 
           <div className="scroll-reveal">
@@ -504,13 +565,14 @@ export default function Home() {
                 </div>
 
                 <div className="text-center md:text-left">
-                  <h3 className="text-lg font-medium mb-3">求职意向</h3>
+                  <h3 className="text-lg font-medium mb-3">关于我</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    食品质量管理、生鲜品控、食品安全合规、研发支持方向。
-                    现居山西大同，可立即到岗，接受出差与驻厂。
+                    食品硕士出身，但不止于食品：既做过品控与标准体系，也用 AI
+                    搭网站、写教程、做数据看板。相信把复杂事物拆解成可执行的
+                    SOP，是跨领域都管用的底层能力。
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                    {['生鲜品控', '质量管理', '食品安全', '合规审核'].map((tag) => (
+                    {['AI 工具', '内容运营', '数据分析', '食品质量'].map((tag) => (
                       <span
                         key={tag}
                         className="text-xs px-2.5 py-1 rounded-md bg-white/5 text-muted-foreground"

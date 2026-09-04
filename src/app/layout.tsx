@@ -3,27 +3,25 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: '栗晓东 | 食品质量管理',
+    default: '栗晓东 | 个人主页',
     template: '%s | 栗晓东',
   },
   description:
-    '食品质量管理硕士，SCI 2区一作。专注生鲜品控、标准体系搭建与微生物风险控制，把混乱的质量问题变成可查、可标、可验证的体系。',
+    '食品硕士，也是 AI 工具重度使用者与内容运营实践者：用 AI 搭网站、写教程、做数据看板，也做品控与标准体系。这里是我的经历合集。',
   keywords: [
     '栗晓东',
-    '食品质量管理',
-    '生鲜品控',
-    '食品安全',
-    'GB 7718',
-    'GB 2760',
-    '微生物检测',
+    '个人主页',
+    'AI 工具',
+    '内容运营',
+    '数据分析',
+    '食品质量',
     'SOP',
-    '山西农业大学',
   ],
   authors: [{ name: '栗晓东' }],
   openGraph: {
-    title: '栗晓东 | 食品质量管理',
+    title: '栗晓东 | 个人主页',
     description:
-      '食品质量管理硕士，SCI 2区一作。专注生鲜品控、标准体系搭建与微生物风险控制。',
+      '食品硕士 × AI 实践 × 内容运营：用 AI 把复杂事物变成可执行的 SOP。',
     locale: 'zh_CN',
     type: 'website',
   },
@@ -48,7 +46,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        {/* 素描水彩背景：左右各一幅（右侧为镜像），衬托中间内容 */}
+        <div aria-hidden className="sketch-backdrop">
+          <div className="sketch-side sketch-left" />
+          <div className="sketch-side sketch-right" />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
