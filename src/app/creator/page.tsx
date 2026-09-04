@@ -19,6 +19,22 @@ export const metadata: Metadata = {
   },
   description:
     '一个理工科硕士的 AI 提效实验记录：用 AI 搭网站、整理资料、做数据分析，把重复劳动交给工具。',
+  // 覆盖 layout 继承下来的作者/关键词/OG/Twitter 字段，防止真名泄进匿名页
+  authors: [{ name: '小冰' }],
+  keywords: ['AI 学长手记', 'AI 工具', '提效', '大学生副业'],
+  openGraph: {
+    title: '小冰 | AI 学长手记',
+    description:
+      '一个理工科硕士的 AI 提效实验记录：用 AI 搭网站、整理资料、做数据分析。',
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: '小冰 | AI 学长手记',
+    description:
+      '一个理工科硕士的 AI 提效实验记录：用 AI 搭网站、整理资料、做数据分析。',
+  },
   robots: {
     index: false,
     follow: false,
