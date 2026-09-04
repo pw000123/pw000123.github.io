@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import {
   Copy,
   Check,
-  Mail,
   MessageCircle,
   ChevronDown,
   Search,
@@ -41,13 +40,6 @@ function useCopyToClipboard() {
 }
 
 const contacts = [
-  {
-    type: 'email',
-    label: '邮箱',
-    value: 'lixiaodong0023@163.com',
-    icon: Mail,
-    href: 'mailto:lixiaodong0023@163.com',
-  },
   {
     type: 'wechat',
     label: '微信',
@@ -233,8 +225,13 @@ export default function Home() {
     <div className="min-h-screen text-foreground overflow-x-hidden">
       {/* 导航栏 */}
       <nav className="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <span className="text-lg font-medium text-gradient font-serif">栗晓东</span>
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <span className="flex items-baseline gap-2">
+            <span className="text-xl font-semibold text-gradient font-serif">小冰</span>
+            <span className="text-[10px] tracking-[0.3em] text-muted-foreground font-sans hidden sm:inline">
+              XIAOBING
+            </span>
+          </span>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors">能力</a>
             <a href="#experience" className="hover:text-foreground transition-colors">经历</a>
@@ -245,50 +242,63 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero 首屏 */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
-        <div className="relative z-10 text-center animate-fade-up">
-          <div className="mb-5 text-[11px] uppercase tracking-[0.3em] text-muted-foreground/80 font-sans">
-            个人主页 · Portfolio · Issue 01 · 2026
+      {/* Hero 首屏：满版水彩杂志刊头 */}
+      <section className="hero-pano min-h-screen flex flex-col relative overflow-hidden">
+        {/* 中央刊头 */}
+        <div className="flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-44 relative z-10 animate-fade-up">
+          <div className="text-[11px] tracking-[0.45em] text-muted-foreground font-sans mb-2">
+            PERSONAL PORTFOLIO
           </div>
-          <div className="mb-6">
-            <span className="inline-block px-4 py-1.5 glass-panel rounded-full text-sm text-muted-foreground">
-              复合型人才 · 会运营 · 能用 AI 搭建网站
-            </span>
+          <div className="text-[11px] tracking-[0.35em] text-primary/80 font-sans mb-8">
+            ISSUE 01 · 2026
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-            <span className="text-gradient">栗晓东</span>
+          <h1 className="text-7xl md:text-8xl font-semibold text-gradient tracking-[0.08em] mb-8">
+            小冰
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-5 max-w-xl mx-auto leading-relaxed">
             把复杂的事物，变成
             <span className="text-foreground font-medium">可执行的 SOP</span>
           </p>
 
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-8">
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-10">
             <MapPin className="w-4 h-4" />
-            <span>食品背景 × AI 实践 × 内容运营 · 硕士 · SCI 一作</span>
+            <span>食品背景 × AI 实践 × 内容运营 × 数据分析</span>
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <a
-              href="#contact"
-              className="glass-panel glass-glow px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300 btn-apple"
-            >
+            <a href="#contact" className="btn-apple">
               联系我
             </a>
             <a
               href="#experience"
-              className="px-6 py-3 rounded-xl font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="px-6 py-3 rounded-xl font-medium border border-border text-foreground hover:border-primary/60 hover:text-primary transition-colors flex items-center gap-2 bg-transparent"
             >
-              查看经历
+              查看经历 <span aria-hidden>→</span>
             </a>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <ChevronDown className="w-6 h-6 text-muted-foreground/50" />
+        {/* 右侧竖排标签列 */}
+        <div className="hidden lg:flex flex-col items-end gap-2 absolute right-8 top-[36%] text-[10px] tracking-[0.28em] text-muted-foreground/70 font-sans z-10">
+          <span>FOOD SCIENCE</span>
+          <span className="text-primary/50">×</span>
+          <span>AI PRACTICE</span>
+          <span className="text-primary/50">×</span>
+          <span>CONTENT OPERATION</span>
+          <span className="text-primary/50">×</span>
+          <span>DATA ANALYSIS</span>
+        </div>
+
+        {/* 右下角画面标注 */}
+        <div className="hidden md:block absolute right-8 bottom-14 text-right text-[10px] tracking-[0.3em] text-muted-foreground/70 font-sans z-10 leading-loose">
+          YARRA RIVER<br />MELBOURNE<br />2026
+        </div>
+
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 animate-float">
+          <ChevronDown className="w-5 h-5 text-muted-foreground/60" />
+          <span className="text-[10px] tracking-[0.3em] text-muted-foreground/60 font-sans">SCROLL</span>
         </div>
       </section>
 
@@ -533,33 +543,22 @@ export default function Home() {
                           <div className="font-medium">{contact.value}</div>
                         </div>
                       </div>
-                      {contact.href ? (
-                        <a
-                          href={contact.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-primary hover:text-primary/80 transition-colors"
-                        >
-                          发信
-                        </a>
-                      ) : (
-                        <button
-                          onClick={() => copy(contact.value)}
-                          className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
-                        >
-                          {copied ? (
-                            <>
-                              <Check className="w-4 h-4" />
-                              已复制
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="w-4 h-4" />
-                              复制
-                            </>
-                          )}
-                        </button>
-                      )}
+                      <button
+                        onClick={() => copy(contact.value)}
+                        className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                      >
+                        {copied ? (
+                          <>
+                            <Check className="w-4 h-4" />
+                            已复制
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-4 h-4" />
+                            复制
+                          </>
+                        )}
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -590,7 +589,7 @@ export default function Home() {
 
       {/* 页脚 */}
       <footer className="py-8 px-6 text-center text-sm text-muted-foreground">
-        <p>© 2026 栗晓东 · 用 AI 搭建</p>
+        <p>© 2026 小冰 · 用 AI 搭建</p>
       </footer>
     </div>
   );

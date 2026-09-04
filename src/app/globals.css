@@ -184,6 +184,31 @@ body {
   }
 }
 
+/* ===== 首屏：满版水彩全景刊头（底部城市天际线，上方奶油留白放文字） ===== */
+.hero-pano {
+  background-color: #ede2c8;
+  background-image:
+    linear-gradient(
+      to bottom,
+      #ede2c8 0%,
+      rgba(237, 226, 200, 0.9) 22%,
+      rgba(237, 226, 200, 0.45) 46%,
+      rgba(237, 226, 200, 0) 66%
+    ),
+    url('/sketch-hero.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center bottom;
+  background-size: 100% 100%, 100% auto;
+}
+
+/* 窄屏：全景按宽度缩放后太扁，放大一点并只露底部 */
+@media (max-width: 900px) {
+  .hero-pano {
+    background-size: 100% 100%, 160% auto;
+    background-position: center top, center bottom;
+  }
+}
+
 /* ===== 杂志感排版默认：标题用衬线 ===== */
 h1, h2, h3 {
   @apply font-serif;

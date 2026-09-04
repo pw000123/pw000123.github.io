@@ -3,13 +3,13 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: '栗晓东 | 个人主页',
-    template: '%s | 栗晓东',
+    default: '小冰 | 个人主页',
+    template: '%s | 小冰',
   },
   description:
     '食品硕士，也是 AI 工具重度使用者与内容运营实践者：用 AI 搭网站、写教程、做数据看板，也做品控与标准体系。这里是我的经历合集。',
   keywords: [
-    '栗晓东',
+    '小冰',
     '个人主页',
     'AI 工具',
     '内容运营',
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     '食品质量',
     'SOP',
   ],
-  authors: [{ name: '栗晓东' }],
+  authors: [{ name: '小冰' }],
   openGraph: {
-    title: '栗晓东 | 个人主页',
+    title: '小冰 | 个人主页',
     description:
       '食品硕士 × AI 实践 × 内容运营：用 AI 把复杂事物变成可执行的 SOP。',
     locale: 'zh_CN',
