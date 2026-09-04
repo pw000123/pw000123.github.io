@@ -137,53 +137,6 @@ body {
   @apply font-sans antialiased;
 }
 
-/* ===== 素描水彩背景层：左右两侧各一幅，中间留白给内容 ===== */
-.sketch-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.sketch-side {
-  position: absolute;
-  top: 50%;
-  width: min(44vw, 640px);
-  aspect-ratio: 1536 / 952;
-  background: url('/sketch-bg.png') center / contain no-repeat;
-  opacity: 0.75;
-  mix-blend-mode: multiply;
-  /* 用径向蒙版把图片边缘羽化进奶油底色，避免出现生硬的矩形边界 */
-  -webkit-mask-image: radial-gradient(
-    ellipse 72% 72% at 50% 50%,
-    #000 52%,
-    transparent 98%
-  );
-  mask-image: radial-gradient(
-    ellipse 72% 72% at 50% 50%,
-    #000 52%,
-    transparent 98%
-  );
-}
-
-.sketch-left {
-  left: 0;
-  transform: translateY(-50%);
-}
-
-.sketch-right {
-  right: 0;
-  transform: translateY(-50%) scaleX(-1);
-}
-
-/* 小屏（手机/窄平板）内容占满宽度，隐藏侧边素描避免干扰阅读 */
-@media (max-width: 900px) {
-  .sketch-side {
-    display: none;
-  }
-}
-
 /* 首屏压在画面上的小字：加奶油色光晕保证可读性 */
 .text-halo {
   text-shadow:

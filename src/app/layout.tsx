@@ -47,11 +47,6 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className={`antialiased`}>
-        {/* 素描水彩背景：左右各一幅（右侧为镜像），衬托中间内容 */}
-        <div aria-hidden className="sketch-backdrop">
-          <div className="sketch-side sketch-left" />
-          <div className="sketch-side sketch-right" />
-        </div>
         {children}
       </body>
     </html>
