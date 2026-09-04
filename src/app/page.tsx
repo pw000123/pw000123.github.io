@@ -265,12 +265,12 @@ export default function Home() {
             小冰
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-5 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-5 max-w-xl mx-auto leading-relaxed text-halo">
             把复杂的事物，变成
             <span className="text-foreground font-medium">可执行的 SOP</span>
           </p>
 
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-10">
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-10 text-halo">
             <MapPin className="w-4 h-4" />
             <span>食品背景 × AI 实践 × 内容运营 × 数据分析</span>
           </div>
@@ -289,7 +289,7 @@ export default function Home() {
         </div>
 
         {/* 右侧竖排标签列 */}
-        <div className="hidden lg:flex flex-col items-end gap-2 absolute right-8 top-[36%] text-[10px] tracking-[0.28em] text-muted-foreground/70 font-sans z-10">
+        <div className="hidden lg:flex flex-col items-end gap-2 absolute right-8 top-[24%] text-[10px] tracking-[0.28em] text-muted-foreground/70 font-sans z-10 text-halo">
           <span>FOOD SCIENCE</span>
           <span className="text-primary/50">×</span>
           <span>AI PRACTICE</span>
@@ -300,7 +300,7 @@ export default function Home() {
         </div>
 
         {/* 右下角画面标注 */}
-        <div className="hidden md:block absolute right-8 bottom-14 text-right text-[10px] tracking-[0.3em] text-muted-foreground/70 font-sans z-10 leading-loose">
+        <div className="hidden md:block absolute right-8 bottom-14 text-right text-[10px] tracking-[0.3em] text-muted-foreground/70 font-sans z-10 leading-loose text-halo">
           YARRA RIVER<br />MELBOURNE<br />2026
         </div>
 
