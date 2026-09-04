@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import {
   Copy,
   Check,
+  Mail,
   MessageCircle,
   ChevronDown,
   Search,
@@ -40,6 +41,13 @@ function useCopyToClipboard() {
 }
 
 const contacts = [
+  {
+    type: 'email',
+    label: '邮箱',
+    value: 'lixiaodong0023@163.com',
+    icon: Mail,
+    href: 'mailto:lixiaodong0023@163.com',
+  },
   {
     type: 'wechat',
     label: '微信',
@@ -543,22 +551,33 @@ export default function Home() {
                           <div className="font-medium">{contact.value}</div>
                         </div>
                       </div>
-                      <button
-                        onClick={() => copy(contact.value)}
-                        className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
-                      >
-                        {copied ? (
-                          <>
-                            <Check className="w-4 h-4" />
-                            已复制
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-4 h-4" />
-                            复制
-                          </>
-                        )}
-                      </button>
+                      {contact.href ? (
+                        <a
+                          href={contact.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary hover:text-primary/80 transition-colors"
+                        >
+                          发信
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => copy(contact.value)}
+                          className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                        >
+                          {copied ? (
+                            <>
+                              <Check className="w-4 h-4" />
+                              已复制
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-4 h-4" />
+                              复制
+                            </>
+                          )}
+                        </button>
+                      )}
                     </div>
                   ))}
                 </div>
