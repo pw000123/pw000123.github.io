@@ -110,6 +110,9 @@
   --paper-shadow-lg: 0 1px 0 rgba(255, 248, 228, 0.95) inset,
     0 2px 4px rgba(96, 62, 18, 0.07),
     0 14px 40px rgba(96, 62, 18, 0.10);
+
+  /* 全站水彩背景的淡化强度：奶油遮罩不透明度，越大图越淡 */
+  --bg-wash: 0.74;
 }
 
 @layer base {
@@ -123,12 +126,6 @@
 
   body {
     @apply bg-background text-foreground;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(156, 58, 31, 0.07), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 88% 100%, rgba(200, 154, 74, 0.10), transparent 60%),
-      radial-gradient(ellipse 50% 30% at 8% 55%, rgba(168, 72, 43, 0.05), transparent 60%),
-      #ede2c8;
-    background-attachment: fixed;
     min-height: 100vh;
   }
 }
@@ -145,29 +142,30 @@ body {
     0 1px 2px rgba(122, 86, 54, 0.18);
 }
 
-/* ===== 首屏：满版水彩全景刊头（底部城市天际线，上方奶油留白放文字） ===== */
-.hero-pano {
+/* ===== 全站统一的水彩淡背景：一张图铺所有页面 =====
+   图片被一层奶油色 wash 淡化（--bg-wash），保证任何位置的文字都可读；
+   fixed 定位让背景随视口固定、内容在其上滚动。 */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-color: #ede2c8;
   background-image:
     linear-gradient(
-      to bottom,
-      #ede2c8 0%,
-      rgba(237, 226, 200, 0.9) 22%,
-      rgba(237, 226, 200, 0.45) 46%,
-      rgba(237, 226, 200, 0) 66%
+      rgba(237, 226, 200, var(--bg-wash)),
+      rgba(237, 226, 200, var(--bg-wash))
     ),
     url('/sketch-hero.png');
-  background-repeat: no-repeat, no-repeat;
-  background-position: center top, center bottom;
-  background-size: 100% 100%, 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-/* 窄屏：全景按宽度缩放后太扁，放大一点并只露底部 */
-@media (max-width: 900px) {
-  .hero-pano {
-    background-size: 100% 100%, 160% auto;
-    background-position: center top, center bottom;
-  }
+/* 原首屏自带的全幅背景图已上移为全站 .site-bg；.hero-pano 保留透明，
+   让首屏文字直接叠在淡化的全站背景上 */
+.hero-pano {
+  background: transparent;
 }
 
 /* ===== 杂志感排版默认：标题用衬线 ===== */

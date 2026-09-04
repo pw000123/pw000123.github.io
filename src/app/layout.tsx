@@ -47,6 +47,8 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className={`antialiased`}>
+        {/* 全站统一的水彩淡背景：一张图铺所有页面，淡化到不干扰文字 */}
+        <div aria-hidden className="site-bg" />
         {children}
       </body>
     </html>
