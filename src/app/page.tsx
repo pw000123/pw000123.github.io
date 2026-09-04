@@ -23,6 +23,7 @@ import {
   Table2,
   Headphones,
   ExternalLink,
+  Compass,
 } from 'lucide-react';
 
 // 复制到剪贴板的 Hook
@@ -63,7 +64,7 @@ const abilities = [
   {
     icon: Sparkles,
     title: 'AI 工具深度应用',
-    talents: '思维 · 搜集 · 学习',
+    talents: '思维 · 搜集',
     highlights: ['AI 建站', '资料整理', '提效流水线'],
     detail:
       '用 WorkBuddy、Codex 等 AI 工具从 0 搭建并部署本站（Next.js + GitHub Pages 自动部署），批量重构课程笔记与复习资料，把重复劳动交给工具',
@@ -242,6 +243,20 @@ const education = [
   },
 ];
 
+// 盖洛普才干：前十（简短卡片：才干名 + 一句话天性描述）
+const talents = [
+  { name: '思维', desc: '享受"想清楚再动手"，复杂问题会先被反复拆解、再重新组装成方案' },
+  { name: '包容', desc: '习惯把边缘的人拉回圈内，协作中优先保证没有人被落下' },
+  { name: '搜集', desc: '对资料与信息有天然收集欲，工具、教程、数据都收进"以备后用"的库' },
+  { name: '排难', desc: '看见"坏了"就来劲，擅长把故障、客诉、异常复原成正常状态' },
+  { name: '纪律', desc: '需要秩序和清单，环境一乱就本能地建流程、定标准、立模板' },
+  { name: '责任', desc: '答应过的事一定兑现，"靠谱"不是选项而是默认值' },
+  { name: '适应', desc: '计划被打乱不慌，能顺着当下调整节奏，先接住问题再谈方案' },
+  { name: '专注', desc: '一旦方向明确就自动屏蔽干扰，盯住目标直到做出结果' },
+  { name: '和谐', desc: '回避无意义的冲突，倾向找共识、搭桥梁，让多方愿意往前走' },
+  { name: '分析', desc: '不轻信现成结论，习惯找数据、找证据、找原因，用事实校准判断' },
+];
+
 // 滚动动画 Hook
 function useScrollReveal() {
   useEffect(() => {
@@ -281,6 +296,7 @@ export default function Home() {
           </span>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors">能力</a>
+            <a href="#talents" className="hover:text-foreground transition-colors">才干</a>
             <a href="#experience" className="hover:text-foreground transition-colors">经历</a>
             <a href="#practice" className="hover:text-foreground transition-colors">实践</a>
             <a href="#education" className="hover:text-foreground transition-colors">教育</a>
@@ -379,6 +395,37 @@ export default function Home() {
                       {tag}
                     </span>
                   ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 盖洛普才干 */}
+      <section id="talents" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="scroll-reveal mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Compass className="w-6 h-6 text-primary" />
+              <h2 className="text-2xl font-semibold">盖洛普才干 · 前十</h2>
+            </div>
+            <p className="text-muted-foreground">十个词，解释我为什么总在做这些事</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {talents.map((talent, index) => (
+              <div
+                key={talent.name}
+                className="scroll-reveal glass-panel rounded-2xl p-6 flex items-start gap-4"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                <span className="text-primary font-serif text-2xl leading-none mt-1 w-7 text-center">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="text-base font-medium mb-1">{talent.name}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{talent.desc}</p>
                 </div>
               </div>
             ))}
