@@ -210,8 +210,8 @@ const practices: Practice[] = [
 
 // 科研成果
 const researchHighlights = [
-  { value: 'SCI 2区', label: '一作论文', detail: 'International Journal of Refrigeration' },
-  { value: '1 篇', label: '中文核心', detail: '第一作者' },
+  { value: 'SCI 2区 · 1 篇', label: '第一作者', detail: 'International Journal of Refrigeration' },
+  { value: '中文核心 · 1 篇', label: '第一作者', detail: '现代食品科技' },
 ];
 
 // 教育背景
