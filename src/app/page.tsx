@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import {
   Copy,
   Check,
@@ -20,7 +21,8 @@ import {
   Globe,
   PenLine,
   Table2,
-  FileStack,
+  Headphones,
+  ExternalLink,
 } from 'lucide-react';
 
 // 复制到剪贴板的 Hook
@@ -112,18 +114,40 @@ const skillGroups = [
   },
 ];
 
-// 工作经历
-const experiences = [
+// 工作经历（每条 = 小标题 + 说明，渲染时小标题加粗）
+type Achievement = { title: string; text: string };
+
+const experiences: {
+  company: string;
+  role: string;
+  period: string;
+  achievements: Achievement[];
+}[] = [
   {
     company: '橙心优选（成都）科技发展有限公司',
     role: '生鲜品控专员 · 品质管理部',
     period: '2021.07 - 2021.12',
     achievements: [
-      '独立负责 8 家供应商质量管控与现场培训，问题发生率从 20% 降至 0%',
-      '审核中发现某品牌葡萄干标签不符合 GB 7718，联动采购推动商品下架，规避合规风险',
-      '1 个月内完成 50 份闽浙大区生鲜验收标准 2.0 编写，覆盖蔬果等全品类',
-      '用 SQL 与 Excel 透视表对客诉数据做五维归因（顾客 / 品类 / 供应商 / 仓配 / 问题类型），输出周报月报',
-      '梳理采购、履约、品控 3 个岗位核心流程，XMind + Markdown 输出 122 页结构化 SOP 培训文档',
+      {
+        title: '标签合规审核',
+        text: '在日常预包装食品标签审核中主动发现某品牌葡萄干标签不符合 GB 7718 规定，第一时间跨部门联动采购推动商品下架，有效规避合规风险。',
+      },
+      {
+        title: '供应商管理',
+        text: '参与供应商准入、资质审核及日常质量管理，独立负责 8 家供应商的质量管控与现场培训，针对发现的“双标签”合规问题制定整改方案，确保后续无类似问题发生。',
+      },
+      {
+        title: '验收标准编写',
+        text: '负责闽浙大区生鲜验收标准 2.0 编写，1 个月内完成 50 份产品验收标准，覆盖蔬果等全品类生鲜，为一线验收人员提供可执行的操作依据。',
+      },
+      {
+        title: '数据分析复盘',
+        text: '使用 SQL 和 Excel 数据透视表对原始客诉数据进行多维度归因分析（按顾客、品类、供应商、仓配环节、问题类型），形成周报/月报，为质量改善决策提供数据支持。',
+      },
+      {
+        title: '知识体系搭建',
+        text: '梳理采购、履约、品控 3 个岗位的核心流程与操作规范，使用 XMind 和 Markdown 输出 122 页结构化 SOP 培训文档，用于新人岗前考核。',
+      },
     ],
   },
   {
@@ -131,15 +155,31 @@ const experiences = [
     role: '品质标准化',
     period: '2026.03 - 2026.06',
     achievements: [
-      '对原有香辛料配方做系统定量分析，飞书建立 20+ 香辛料精准配比数据库，解决批次间口味波动',
-      '掌握盐度计、大肠菌群检测、亚硝酸盐测定等方法，制定操作规程并培训一线生产人员',
-      '快速检测法结合国标 GB 5009.33 完成亚硝酸盐测定，对照 GB 2760 做合规评估与整改建议',
+      {
+        title: '配方标准化体系搭建',
+        text: '对企业原有香辛料配方进行系统定量分析，使用飞书建立标准化配方数据库（含 20 多种香辛料的精准配比），解决批次间口味品质波动大的行业痛点，为生产一致性管控提供可落地的数据支撑。',
+      },
+      {
+        title: '检测能力建设',
+        text: '根据企业生产需求，掌握盐度计使用、大肠菌群检测、亚硝酸盐测定等方法，制定操作规程并对一线生产人员开展培训，提升企业自检能力。',
+      },
+      {
+        title: '合规风险评估',
+        text: '采用快速检测法与国标方法（GB 5009.33）完成产品亚硝酸盐含量测定，对照 GB 2760 进行合规评估，帮助企业排查食品安全风险并提出整改建议。',
+      },
     ],
   },
 ];
 
 // AI 与运营实践
-const practices = [
+type Practice = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  href?: string;
+};
+
+const practices: Practice[] = [
   {
     icon: Globe,
     title: '用 AI 搭建并部署本站',
@@ -159,10 +199,11 @@ const practices = [
       '把高校食品学院近 6 年研究生录取数据整理为飞书多维表格看板；将零散课程资料重构为结构化笔记并售出。',
   },
   {
-    icon: FileStack,
-    title: 'AI 提效流水线',
+    icon: Headphones,
+    title: '音频转录助手',
     description:
-      '用 AI 批量重构课程视频笔记、整理考研复习资料、辅助论文数据分析（R 语言 + 高通量测序），形成一套可复用的个人提效工作流。',
+      '使用 Codex 搭建 AI 音频转录工具，通过 Hermes 驱动在飞书平台运行，支持将音频链接自动转录为文字、生成结构化笔记，提升内容整理效率。',
+    href: 'https://pw000123.github.io/agent-product-page/',
   },
 ];
 
@@ -170,8 +211,6 @@ const practices = [
 const researchHighlights = [
   { value: 'SCI 2区', label: '一作论文', detail: 'International Journal of Refrigeration' },
   { value: '1 篇', label: '中文核心', detail: '第一作者' },
-  { value: '14 → 21 天', label: '4℃ 货架期', detail: '复合天然保鲜剂应用验证' },
-  { value: 'R + 测序', label: '数据分析', detail: '菌群群落结构与显著性分析' },
 ];
 
 // 教育背景
@@ -412,8 +451,11 @@ export default function Home() {
                 <ul className="space-y-3">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 flex-shrink-0" />
-                      <span className="leading-relaxed">{achievement}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-[7px] flex-shrink-0" />
+                      <span className="leading-relaxed">
+                        <span className="font-medium text-foreground">{achievement.title}：</span>
+                        {achievement.text}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -435,21 +477,46 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {practices.map((item, index) => (
-              <div
-                key={item.title}
-                className="scroll-reveal glass-panel glass-glow rounded-2xl p-6"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 glass-panel rounded-xl flex items-center justify-center">
-                    <item.icon className="w-5 h-5 text-primary" />
+            {practices.map((item, index) => {
+              const body = (
+                <>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 glass-panel rounded-xl flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-base font-medium">{item.title}</h3>
+                    {item.href && (
+                      <span className="ml-auto inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border border-primary/40 text-primary">
+                        产品说明 <ExternalLink className="w-3 h-3" />
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-base font-medium">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </>
+              );
+              const baseCls =
+                'scroll-reveal glass-panel glass-glow rounded-2xl p-6 transition-all duration-300';
+              return item.href ? (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${baseCls} block hover:bg-white/5 hover:border-primary/40`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {body}
+                </a>
+              ) : (
+                <div
+                  key={item.title}
+                  className={baseCls}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {body}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
