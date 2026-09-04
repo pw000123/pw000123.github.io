@@ -213,7 +213,7 @@ export default function Home() {
       {/* 导航栏 */}
       <nav className="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <span className="text-lg font-medium text-gradient">小冰</span>
+          <span className="text-lg font-medium text-gradient font-serif">小冰</span>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors">关于</a>
             <a href="#experience" className="hover:text-foreground transition-colors">经历</a>
@@ -232,6 +232,9 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center animate-fade-up">
+          <div className="mb-5 text-[11px] uppercase tracking-[0.3em] text-muted-foreground/80 font-sans">
+            个人作品集 · Portfolio · Issue 01 · 2026
+          </div>
           <div className="mb-6">
             <span className="inline-block px-4 py-1.5 glass-panel rounded-full text-sm text-muted-foreground">
               复合型人才 · 会运营 · 能用AI工具搭建网站

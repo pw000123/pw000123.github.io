@@ -103,3 +103,7 @@ Desktop.ini
 # Preview files
 .preview
 .codegraph
+out/
+_tmp_10104_3cdc96f58a0caf5f4baa63100bc9df29
+_tmp_27948_fb853ebffa036140ed7c4dc6ab00898d
+pnpm-workspace.yaml
