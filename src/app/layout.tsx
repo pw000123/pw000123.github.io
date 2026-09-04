@@ -3,30 +3,33 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: '小冰 | 个人主页',
-    template: '%s | 小冰',
+    default: '栗晓东 | 食品质量管理',
+    template: '%s | 栗晓东',
   },
   description:
-    '复合型人才，擅长运营与AI工具应用。把复杂事物变成可执行的SOP。',
+    '食品质量管理硕士，SCI 2区一作。专注生鲜品控、标准体系搭建与微生物风险控制，把混乱的质量问题变成可查、可标、可验证的体系。',
   keywords: [
-    '小冰',
-    '个人主页',
-    '运营',
-    'AI工具',
-    '内容运营',
-    '新媒体运营',
+    '栗晓东',
+    '食品质量管理',
+    '生鲜品控',
+    '食品安全',
+    'GB 7718',
+    'GB 2760',
+    '微生物检测',
+    'SOP',
+    '山西农业大学',
   ],
-  authors: [{ name: '小冰' }],
+  authors: [{ name: '栗晓东' }],
   openGraph: {
-    title: '小冰 | 个人主页',
+    title: '栗晓东 | 食品质量管理',
     description:
-      '复合型人才，擅长运营与AI工具应用。把复杂事物变成可执行的SOP。',
+      '食品质量管理硕士，SCI 2区一作。专注生鲜品控、标准体系搭建与微生物风险控制。',
     locale: 'zh_CN',
     type: 'website',
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
@@ -35,7 +38,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: '#0a0a0f',
+  themeColor: '#ede2c8',
 };
 
 export default function RootLayout({
